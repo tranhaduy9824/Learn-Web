@@ -855,6 +855,10 @@ button:hover {
     opacity: 0.8;   
 }
 
+.buy-close i {
+    font-size: 30px;
+}
+
 .buy-close:hover {
     opacity: 1;
     background-color: red;
