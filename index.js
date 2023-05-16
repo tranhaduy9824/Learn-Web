@@ -208,4 +208,39 @@ buy.addEventListener('click', outBuy)
 buyCTN.addEventListener('click', function(event) {
     event.stopPropagation()
 })
-  
+
+// Contact
+const contactbtn = document.querySelector('.contact')
+const contact = document.querySelector('#logo-chat')
+const closeContacts = document.querySelectorAll('.close-contact')
+
+function showContact() {
+    contact.classList.add('open')
+}
+
+function outContact() {
+    contact.classList.remove('open')
+}
+
+contactbtn.addEventListener('click', showContact)
+contactbtn.addEventListener('click', showBoxchat)
+
+for (const closeContact of closeContacts) {
+  closeContact.addEventListener('click', outContact),
+  closeContact.addEventListener('click', outBoxchat)
+}
+  // Box chat
+const boxchatbtn = document.querySelector('.box-chat')
+const boxchat = document.querySelector('#box-chat')
+const closeBoxchat =document.querySelector('.close-boxchat')
+
+function showBoxchat() {
+  boxchat.classList.add('open')
+}
+
+function outBoxchat() {
+  boxchat.classList.remove('open')
+}
+
+closeBoxchat.addEventListener('click', outBoxchat)
+boxchatbtn.addEventListener('click', showBoxchat)
