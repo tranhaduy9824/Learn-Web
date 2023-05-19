@@ -4,7 +4,7 @@ var blurArray = ['0','5px'];
 var colorArray = ['#d183d6','#83d6d4','#4472CA'];
 var width = document.documentElement.clientWidth;
 var height = document.documentElement.clientHeight;
-var count = 200;
+var count = 300;
 
 function createElementRandom() {
     for (var i=0;i<count;i++) {
@@ -244,3 +244,72 @@ function outBoxchat() {
 
 closeBoxchat.addEventListener('click', outBoxchat)
 boxchatbtn.addEventListener('click', showBoxchat)
+
+// Document
+const documenttbtn = document.querySelector('.document');
+const documentt = document.querySelector('#document');
+const updownicon = document.querySelector('.fa-chevron-down');
+
+function showDocument() {
+  documentt.classList.add('open');
+}
+
+function outDocument() {
+  documentt.classList.remove('open');
+}
+
+function changDocument() {
+  documenttbtn.classList.add('change');
+}
+
+function removechangDocument() {
+  documenttbtn.classList.remove('change');
+}
+
+function addOpenDocument() {
+  documenttbtn.classList.add('open-document');
+}
+
+function changeIconup() {
+  updownicon.classList.add('fa-chevron-up');
+  updownicon.classList.remove('fa-chevron-down');
+}
+
+function changeIcondown() {
+  updownicon.classList.add('fa-chevron-down');
+  updownicon.classList.remove('fa-chevron-up');
+}
+
+const documenttbtnOpen = document.querySelector('.open-document');
+
+function removeOpenDocument() {
+  documenttbtnOpen.classList.remove('open-document');
+  documenttbtnOpen.classList.add('close-document');
+  documenttbtn.removeEventListener('click', removeOpenDocument);
+  documenttbtn.removeEventListener('click', outDocument);
+  documenttbtn.removeEventListener('click', removechangDocument);
+  documenttbtn.removeEventListener('click', changeIcondown);
+}
+
+function toggleDocument() {
+  if (documentt.classList.contains('open')) {
+    outDocument();
+    removechangDocument();
+    changeIcondown();
+  } else {
+    showDocument();
+    changDocument();
+    changeIconup();
+  }
+}
+
+documenttbtnOpen.addEventListener('click', toggleDocument);
+documenttbtn.addEventListener('click', toggleDocument);
+
+const closeDocumentts = document.querySelectorAll('.close-document');
+
+for (const closeDocumentt of closeDocumentts) {
+  closeDocumentt.addEventListener('click', outDocument);
+  closeDocumentt.addEventListener('click', removechangDocument);
+  closeDocumentt.addEventListener('click', changeIcondown);
+}

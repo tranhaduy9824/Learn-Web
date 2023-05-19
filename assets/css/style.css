@@ -1,4 +1,4 @@
-* {
+    * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -128,6 +128,21 @@ body {
     background-color: rgb(0, 174, 255, 0.4);
     border-radius: 5px;
     transform: scale(1.03);
+}
+
+.document.change {
+    background-color: rgb(0, 174, 255, 0.4);
+    border-radius: 5px;
+    transform: scale(1.03);
+}
+
+.document i {
+    font-size: 20px;
+    color: white;
+}
+
+.document:hover + #document {
+    display: block;
 }
 
 /* Login */
@@ -468,7 +483,7 @@ button:hover {
 /* Home */
 #home {
     position: absolute;
-    top: 80px;
+    top: 60px;
     width: 100%;
     color: white;
 }
@@ -486,6 +501,26 @@ button:hover {
     padding: 8px;
 }
 
+#home .gt span {
+    font-size: 30px;
+    animation: word 1s linear infinite;
+    animation-delay: calc(0.05s * var(--i));
+    display: inline-block;
+}
+
+@keyframes word {
+    0%, 100% {
+        color: rgb(0, 115, 255);
+        transform: translateY(0);
+        text-shadow: 0 0 20px rgb(0, 115, 255);
+    }
+    50% {
+        color: rgb(0, 255, 234);
+        transform: translateY(-5px);
+        text-shadow: 0 0 20px rgb(0, 255, 234);
+    }
+}
+
 .box-basic {
     width: 90%;
     margin-left: 5%;
@@ -494,6 +529,7 @@ button:hover {
 
 /* Basic KnowLedge */
 #home .basicknowledge {
+    position: relative;
     padding: 50px 0;
     width: 100%;
 }
@@ -605,11 +641,11 @@ button:hover {
     line-height: 40px;
     font-size: 20px;
     border-radius: 50%;
+    text-align: center;
 }
 
 .icon-btn > i{
     font-weight: 900;
-    margin-left: 8px;
 }
 
 .ic1:hover {
@@ -774,7 +810,7 @@ button:hover {
 }
 
 #course .box-basic2 .charge {
-    background-color: blue;
+    background-color: #26c6da;
     width: 100px;
 }
 
@@ -1081,4 +1117,77 @@ button:hover {
 #box-chat .bottom > i:hover {
     background-color: #3a3b3c;
     cursor: pointer;
+}
+
+/* Document */
+#document {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: 600px;
+    background-color: black;
+    display: none;
+}
+
+#document.open {
+    display: flex;
+    animation: documentIn 0.2s ease;
+}
+
+@keyframes documentIn {
+    From {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#document .boxbig-document {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#document .box-document {
+    width: 20%;
+    line-height: 1.7;
+    height: 600px;
+}
+
+#document .box-document h3 {
+    color: #a3daff;
+    font-size: 24px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+#document .box-document a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+#document .box-document a:hover {
+    color: red;
+}
+
+#document .close-document {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+
+#document .close-document:hover {
+    color: red;
+    cursor: pointer;
+    background-color: white;
 }
