@@ -1,3 +1,4 @@
+// Container
 var container = document.getElementById('container');
 var borderArray = ['50%'];
 var blurArray = ['0','5px'];

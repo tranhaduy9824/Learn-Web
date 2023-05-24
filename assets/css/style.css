@@ -898,6 +898,7 @@ button:hover {
 .buy-close:hover {
     opacity: 1;
     background-color: red;
+    border-radius: 0 10px 0 0;
 }
 
 .buy-body {
