@@ -883,6 +883,10 @@ button:hover {
     cursor: pointer;
 }
 
+.blog-iteam .time-blog {
+    color: #00ffffb0;
+}
+
 .blog-iteam button {
     padding: 4px 16px;
     font-size: 20px;
