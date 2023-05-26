@@ -1,4 +1,4 @@
-    * {
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -109,6 +109,8 @@ body {
 .menu-left .search:hover {
     background-color: red;
     cursor: pointer;
+    border-radius: 0 10px 10px 0;
+    border-right: 2px solid white;
 }
 
 .menu-left .input i {
@@ -837,6 +839,166 @@ button:hover {
     content: '\f105';
 }
 
+/* Blog */
+#blog {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    color: white;
+    display: none;
+}
+
+#blog.open {
+    display: block;
+}
+
+.blog-slider {
+    width: 90%;
+    margin-left: 5%;
+    padding: 32px 0 16px 40px;
+}
+
+.blog-iteam {
+    position: relative;
+    width: 85% !important;
+    height: 500px;
+    padding: 16px;
+    background-color: rgba(37, 116, 165, 0.451);
+    color: white;
+    border-radius: 10px;
+}
+
+.blog-iteam img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.blog-iteam p {
+    font-size: 20px;
+    margin: 16px 0;
+}
+
+.blog-iteam h2:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.blog-iteam button {
+    padding: 4px 16px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+}
+
+.blog-iteam button:hover {
+    background-color: red;
+}
+
+#blog .slick-prev:before {
+    font-family: fontawesome;
+    font-size: 40px;
+    color: white;
+    content: '\f104';
+}
+
+#blog .slick-next:before {
+    font-family: fontawesome;
+    font-size: 40px;
+    color: white;
+    content: '\f105';
+}
+
+/* Icon */
+#blog .icon-intro {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#blog .icon-btn{
+    float: left;
+    margin: 32px 4px;
+    background-color: #22cbff;
+    border: 2px solid rgb(43, 0, 255);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#blog .icon-btn > i{
+    font-weight: 900;
+}
+
+#blog .ic1:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border-color: blue;
+}
+
+#blog .ic2:hover {
+    cursor: pointer;
+    background-color: #2478ba;
+    color: white;
+    border-color: #2478ba;
+}
+
+#blog .ic3:hover {
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    border-color: #111;
+}
+
+#blog .ic4:hover {
+    cursor: pointer;
+    background-color: rgb(240, 43, 171);
+    color: white;
+    border-color: rgb(240, 43, 171);
+}
+
+#blog .ic5:hover {
+    cursor: pointer;
+    background-color: #cb2320;
+    color: white;
+    border-color: #cb2320;
+}
+
+#blog .tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+#blog .tooltip .tooltiptext {
+    position: absolute;
+    visibility: hidden;
+    width: 100px;
+    bottom: 120%;
+    left: 50%;
+    margin-left: -60px;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: 1;
+    font-size: 13px;
+}
+
+#blog .tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 /* Buy */
 .buy {
     position: fixed;
@@ -966,6 +1128,9 @@ button:hover {
 
 /* Contact */   
 #logo-chat {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;    
     width: 70px;
     height: 70px;
     display: none;
@@ -1033,7 +1198,7 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     height: 40px;
-    background-color: #242526a4;
+    background-color: rgba(0, 0, 0, 0.808);
     border-bottom: 2px solid black;
     border-radius: 20px 20px 0 0;
     color: white;
@@ -1192,3 +1357,4 @@ button:hover {
     cursor: pointer;
     background-color: white;
 }
+

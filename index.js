@@ -86,26 +86,6 @@ signupctn.addEventListener('click', function(event) {
 backloginbtn.addEventListener('click', outSignup)
 backloginbtn.addEventListener('click', showLogin)
 
-// Home
-// $('.box-basic').slick({
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-// });
-
-// var filtered = false;
-  
-// $('.js-filter').on('click', function(){
-// if (filtered === false) {
-//     $('.filtering').slick('slickFilter',':even');
-//     $(this).text('Unfilter Slides');
-//     filtered = true;
-// } else {
-//     $('.filtering').slick('slickUnfilter');
-//     $(this).text('Filter Slides');
-//     filtered = false;
-// }
-// });
-
 // Home 
 const homebtn = document.querySelector('.home')
 const home = document.querySelector('#home')
@@ -118,6 +98,7 @@ function outHome() {
     home.classList.add('out')
 }
 
+homebtn.addEventListener('click', outBlog)
 homebtn.addEventListener('click', outCourse)
 homebtn.addEventListener('click', showHome)
 
@@ -145,6 +126,7 @@ $(document).ready(function() {
     });
   
     coursebtn.addEventListener('click', function() {
+      outBlog();
       outHome();
       showCourse();
   
@@ -158,6 +140,7 @@ $(document).ready(function() {
     });
 
     homebtn.addEventListener('click', function() {
+        outBlog();
         outCourse();
         showHome();
     
@@ -314,3 +297,54 @@ for (const closeDocumentt of closeDocumentts) {
   closeDocumentt.addEventListener('click', removechangDocument);
   closeDocumentt.addEventListener('click', changeIcondown);
 }
+
+// Blog
+const blogbtn = document.querySelector('.blog')
+const blog = document.querySelector('#blog')
+
+function showBlog() {
+    blog.classList.add('open')
+}
+
+function outBlog() {
+    blog.classList.remove('open')
+}
+
+$(document).ready(function() {
+  var slider;
+
+  slider = $('.blog-slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    infinite: false,
+  });
+
+  blogbtn.addEventListener('click', function() {
+      outHome();
+      outCourse();
+      showBlog();
+  
+      setTimeout(function() {
+        slider.slick('slickGoTo', slider.slideCount - 1);
+  
+        setTimeout(function() {
+          slider.slick('slickNext');
+        }, 100);
+      }, 100);
+    });
+
+  var filtered = false;
+  $('.js-filter').on('click', function() {
+    if (filtered === false) {
+      $('.filtering').slick('slickFilter', ':even');
+      $(this).text('Unfilter Slides');
+      filtered = true;
+    } else {
+      $('.filtering').slick('slickUnfilter');
+      $(this).text('Filter Slides');
+      filtered = false;
+    }
+  });
+});
