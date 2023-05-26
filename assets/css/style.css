@@ -878,12 +878,19 @@ button:hover {
     margin: 16px 0;
 }
 
+.blog-iteam h2 {
+    margin-top: 8px;
+}
+
 .blog-iteam h2:hover {
     color: red;
     cursor: pointer;
 }
 
 .blog-iteam .time-blog {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
     color: #00ffffb0;
 }
 
