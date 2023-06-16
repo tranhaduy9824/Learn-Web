@@ -34,7 +34,7 @@ function createElementRandom() {
 createElementRandom();
 
 // Open login
-const loginbtn = document.querySelector('.js-login-btn')
+const loginbtns = document.querySelectorAll('.js-login-btn')
 const login = document.querySelector('#login')
 const close = document.querySelector('.js-login-close')
 const loginctn = document.querySelector('.js-login-container') 
@@ -47,7 +47,9 @@ function outLogin() {
     login.classList.remove('open')
 }
 
-loginbtn.addEventListener('click', showLogin)
+for (const loginbtn of loginbtns) {
+    loginbtn.addEventListener('click', showLogin)
+}
 
 close.addEventListener('click', outLogin)
 
@@ -87,7 +89,7 @@ backloginbtn.addEventListener('click', outSignup)
 backloginbtn.addEventListener('click', showLogin)
 
 // Home 
-const homebtn = document.querySelector('.home')
+const homebtns = document.querySelectorAll('.home')
 const home = document.querySelector('#home')
 
 function showHome() {
@@ -98,12 +100,8 @@ function outHome() {
     home.classList.add('out')
 }
 
-homebtn.addEventListener('click', outBlog)
-homebtn.addEventListener('click', outCourse)
-homebtn.addEventListener('click', showHome)
-
 // Course
-const coursebtn = document.querySelector('.course')
+const coursebtns = document.querySelectorAll('.course')
 const course = document.querySelector('#course')
 
 function showCourse() {
@@ -124,22 +122,25 @@ $(document).ready(function() {
       autoplaySpeed: 2000,
       infinite: false,
     });
-  
-    coursebtn.addEventListener('click', function() {
-      outBlog();
-      outHome();
-      showCourse();
-  
-      setTimeout(function() {
-        slider.slick('slickGoTo', slider.slideCount - 1);
-  
-        setTimeout(function() {
-          slider.slick('slickNext');
-        }, 100);
-      }, 100);
-    });
 
-    homebtn.addEventListener('click', function() {
+    for (const coursebtn of coursebtns) {
+      coursebtn.addEventListener('click', function() {
+        outBlog();
+        outHome();
+        showCourse();
+    
+        setTimeout(function() {
+          slider.slick('slickGoTo', slider.slideCount - 1);
+    
+          setTimeout(function() {
+            slider.slick('slickNext');
+          }, 100);
+        }, 100);
+      });
+    }
+  
+    for (const homebtn of homebtns) {
+      homebtn.addEventListener('click', function() {
         outBlog();
         outCourse();
         showHome();
@@ -152,13 +153,14 @@ $(document).ready(function() {
           }, 100);
         }, 100);
       });
+    }
   
     var filtered = false;
     $('.js-filter').on('click', function() {
       if (filtered === false) {
         $('.filtering').slick('slickFilter', ':even');
         $(this).text('Unfilter Slides');
-        filtered = true;
+        filtered = true;  
       } else {
         $('.filtering').slick('slickUnfilter');
         $(this).text('Filter Slides');
@@ -194,7 +196,7 @@ buyCTN.addEventListener('click', function(event) {
 })
 
 // Contact
-const contactbtn = document.querySelector('.contact')
+const contactbtns = document.querySelectorAll('.contact')
 const contact = document.querySelector('#logo-chat')
 const closeContacts = document.querySelectorAll('.close-contact')
 
@@ -206,8 +208,10 @@ function outContact() {
     contact.classList.remove('open')
 }
 
-contactbtn.addEventListener('click', showContact)
-contactbtn.addEventListener('click', showBoxchat)
+for (const contactbtn of contactbtns) {
+  contactbtn.addEventListener('click', showContact)
+  contactbtn.addEventListener('click', showBoxchat)
+}
 
 for (const closeContact of closeContacts) {
   closeContact.addEventListener('click', outContact),
@@ -230,7 +234,7 @@ closeBoxchat.addEventListener('click', outBoxchat)
 boxchatbtn.addEventListener('click', showBoxchat)
 
 // Document
-const documenttbtn = document.querySelector('.document');
+const documenttbtns = document.querySelectorAll('.document');
 const documentt = document.querySelector('#document');
 const updownicon = document.querySelector('.fa-chevron-down');
 
@@ -243,15 +247,21 @@ function outDocument() {
 }
 
 function changDocument() {
-  documenttbtn.classList.add('change');
+  for (const documenttbtn of documenttbtns) {
+    documenttbtn.classList.add('change');
+  }
 }
 
 function removechangDocument() {
-  documenttbtn.classList.remove('change');
+  for (const documenttbtn of documenttbtns) {
+    documenttbtn.classList.remove('change');
+  }
 }
 
 function addOpenDocument() {
-  documenttbtn.classList.add('open-document');
+  for (const documenttbtn of documenttbtns) {
+    documenttbtn.classList.add('open-document');
+  }
 }
 
 function changeIconup() {
@@ -269,10 +279,12 @@ const documenttbtnOpen = document.querySelector('.open-document');
 function removeOpenDocument() {
   documenttbtnOpen.classList.remove('open-document');
   documenttbtnOpen.classList.add('close-document');
-  documenttbtn.removeEventListener('click', removeOpenDocument);
-  documenttbtn.removeEventListener('click', outDocument);
-  documenttbtn.removeEventListener('click', removechangDocument);
-  documenttbtn.removeEventListener('click', changeIcondown);
+  for (const documenttbtn of documenttbtns) {
+    documenttbtn.removeEventListener('click', removeOpenDocument);
+    documenttbtn.removeEventListener('click', outDocument);
+    documenttbtn.removeEventListener('click', removechangDocument);
+    documenttbtn.removeEventListener('click', changeIcondown);
+  }
 }
 
 function toggleDocument() {
@@ -288,7 +300,9 @@ function toggleDocument() {
 }
 
 documenttbtnOpen.addEventListener('click', toggleDocument);
-documenttbtn.addEventListener('click', toggleDocument);
+for (const documenttbtn of documenttbtns) {
+    documenttbtn.addEventListener('click', toggleDocument);
+}
 
 const closeDocumentts = document.querySelectorAll('.close-document');
 
@@ -299,7 +313,7 @@ for (const closeDocumentt of closeDocumentts) {
 }
 
 // Blog
-const blogbtn = document.querySelector('.blog')
+const blogbtns = document.querySelectorAll('.blog')
 const blog = document.querySelector('#blog')
 
 function showBlog() {
@@ -311,17 +325,39 @@ function outBlog() {
 }
 
 $(document).ready(function() {
-  var slider;
+    var slider;
+
+function initializeSlider() {
+  var slidesToShow = 3;
+
+  if (window.innerWidth < 1024) {
+    slidesToShow = 2;
+  }
+
+  if (window.innerWidth < 740) {
+      slidesToShow = 1;
+    }
 
   slider = $('.blog-slider').slick({
-    slidesToShow: 3,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 2000,
     infinite: false,
   });
+}
 
-  blogbtn.addEventListener('click', function() {
+initializeSlider();
+
+$(window).resize(function() {
+  if (slider) {
+    slider.slick('unslick'); 
+  }
+  initializeSlider(); 
+});
+
+  for (const blogbtn of blogbtns) {
+    blogbtn.addEventListener('click', function() {
       outHome();
       outCourse();
       showBlog();
@@ -334,6 +370,7 @@ $(document).ready(function() {
         }, 100);
       }, 100);
     });
+  }
 
   var filtered = false;
   $('.js-filter').on('click', function() {
